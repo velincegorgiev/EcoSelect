@@ -1,0 +1,133 @@
+﻿@model EShop.Domain.DomainModels.Ticket
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom style for eco-product shop */
+    body {
+        background-color: #f5f5f5; /* Light Gray */
+    }
+
+    h1, h4 {
+        color: #228B22; /* Forest Green */
+    }
+
+    .form-control {
+        border-color: #228B22; /* Forest Green */
+    }
+
+    .btn-primary {
+        background-color: #228B22; /* Forest Green */
+        border-color: #228B22; /* Forest Green */
+    }
+
+        .btn-primary:hover {
+            background-color: #2E8B57; /* Sea Green */
+            border-color: #2E8B57; /* Sea Green */
+        }
+
+    .btn-secondary {
+        background-color: #f0f0f0; /* Light Grey */
+        border-color: #f0f0f0; /* Light Grey */
+        color: #228B22; /* Forest Green */
+    }
+
+        .btn-secondary:hover {
+            background-color: #d3d3d3; /* Grey */
+            border-color: #d3d3d3; /* Grey */
+            color: #228B22; /* Forest Green */
+        }
+
+    /* Additional styles for the form container */
+    .form-container {
+        background-color: #fff; /* White */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px #888888;
+    }
+
+        .form-container h4 {
+            margin-top: 0;
+        }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    /* Styling for the submit button */
+    .btn-submit {
+        background-color: #228B22; /* Forest Green */
+        border-color: #228B22; /* Forest Green */
+        color: #fff; /* White */
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-submit:hover {
+            background-color: #2E8B57; /* Sea Green */
+            border-color: #2E8B57; /* Sea Green */
+        }
+</style>
+
+<h1 class="text-center">Create</h1>
+
+<h4 class="text-center">Product</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6 form-container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MovieName" class="control-label">Product Name</label>
+                <input asp-for="MovieName" class="form-control" />
+                <span asp-validation-for="MovieName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label">Where is the product intended for?</label>
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Until when that price is valid</label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Price</label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Image</label>
+                <input asp-for="Image" class="form-control">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <!-- Rating field is not changed -->
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label">Rating</label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-submit btn-block">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="button-group mt-3 text-center">
+    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+</div>
+
+
